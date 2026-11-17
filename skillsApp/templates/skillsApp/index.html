@@ -1,0 +1,25 @@
+<h1>SkillsExchange</h1>
+
+<h2>Prochains échanges programmés</h2>
+
+<ul>
+    {% for slot in upcoming_slots %}
+        <li>
+            {{ slot.date|date:"d/m/Y" }} -
+            {{ slot.activity.title }}
+        </li>
+    {% empty %}
+        <li>Aucun échange programmé pour le moment.</li>
+    {% endfor %}
+</ul>
+
+<h2>Compétences proposées</h2>
+
+<ul>
+    {% for skill in skills %}
+        <li>{{ skill.name }}</li>
+    {% empty %}
+        <li>Aucune compétence disponible.</li>
+    {% endfor %}
+</ul>
+
