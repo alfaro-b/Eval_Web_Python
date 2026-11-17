@@ -1,0 +1,31 @@
+<!-- Gabarit parent : définit la structure HTML commune à toutes les pages -->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillsExchange</title>
+    <link rel="stylesheet" href="{% static 'skillsApp/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Bandeau commun, personnalisable dans les gabarits enfants -->
+    <header>
+        {% block header %}
+            <img src="{% static 'skillsApp/images/banner.png' %}" alt="Bandeau de l'appli" class="banner">
+            <h1>SkillsExchange</h1>
+        {% endblock %}
+    </header>
+
+    <main>
+        {% block main %}
+        {% endblock %}
+    </main>
+
+</body>
+
+</html>
