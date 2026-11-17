@@ -11,4 +11,6 @@ urlpatterns = [
     path("login/", auth_views.LoginView.as_view(template_name="skillsApp/login.html", next_page="skillsApp:index"), name="login"),
     # Déconnexion de l'utilisateur et retour à l'accueil
     path("logout/", auth_views.LogoutView.as_view(next_page="skillsApp:index"), name="logout"),
+    path("choose_skill/", views.choose_skill, name="choose_skill"),
+    path("confirm_choice/", views.confirm_choice, name="confirm_choice"),
 ]

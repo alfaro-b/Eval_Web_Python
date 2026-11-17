@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+{% if user.is_authenticated %}
+
+    <section>
+        <h2>Mes compétences</h2>
+
+        <p>Sélectionnez les compétences que vous souhaitez proposer.</p>
+
+        <form method="post">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">Enregistrer</button>
+        </form>
+    </section>
+
+{% else %}
+    <p>Vous devez être connecté pour accéder à cette page.</p>
+    <a href="{% url 'skillsApp:index' %}"> Retour à la page d'accueil</a>
+{% endif %}
+
+{% endblock %}

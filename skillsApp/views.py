@@ -1,6 +1,8 @@
+from django.shortcuts import redirect, render
 from django.utils import timezone
 from django.views import generic
 
+from .forms import SkillForm
 from .models import Skill, TimeSlot
 
 
@@ -21,3 +23,39 @@ class IndexView(generic.ListView):
         ).order_by("date")
 
         return context
+
+
+def choose_skill(request):
+    """ Permet à un utilisateur connecté de choisir ses compétences """
+
+    # Redirection vers l'accueil si l'utilisateur n'est pas connecté
+    if not request.user.is_authenticated:
+        return redirect("skillsApp:index")
+
+    if request.method == "POST":
+        # Formulaire lié aux données envoyées par l'utilisateur
+        form = SkillForm(request.POST)
+
+        if form.is_valid():
+
+            # Compétences sélectionnées dans le formulaire
+            selected_skills = form.cleaned_data["skill"]
+
+            # Enregistrement des compétences de l'utilisateur
+            for skill in Skill.objects.all():
+                if skill in selected_skills:
+                    skill.users.add(request.user)
+                else:
+                    skill.users.remove(request.user)
+            return redirect("skillsApp:confirm_choice")
+
+    else:
+        # Création d'un formulaire vide
+        form = SkillForm()
+
+    return render(request, "skillsApp/choose_skill.html", {"form": form})
+
+
+def confirm_choice(request):
+    """ Page de confirmation d'ajout de compétences """
+    return render(request, "skillsApp/confirm_choice.html")

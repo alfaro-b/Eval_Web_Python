@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Confirmation de l'ajout d'une ou plusieur(s) compétence(s)
+{% endblock %}
+
+{% block main %}
+
+{% if user.is_authenticated %}
+    <h1>Confirmation de l'ajout d'une ou plusieur(s) compétence(s)</h1>
+
+    <p>Votre compétence a bien été ajoutée.</p>
+
+    <a href="{% url 'skillsApp:index' %}">Retour à la page d'accueil</a>
+{% else %}
+    <p>Vous devez être connecté pour accéder à cette page.</p>
+    <a href="{% url 'skillsApp:index' %}"> Retour à la page d'accueil</a>
+{% endif %}
+
+{% endblock %}
