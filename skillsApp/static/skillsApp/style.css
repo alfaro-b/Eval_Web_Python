@@ -33,6 +33,7 @@ header h1 {
     color: #397d70;
 }
 
+
 /* Contenu principal */
 main {
     max-width: 900px;
@@ -63,6 +64,54 @@ ul {
 li {
     margin-bottom: 10px;
     line-height: 1.5;
+}
+
+
+/* Bouton de connexion */
+.btn-login {
+    display: inline-block;
+    margin: 10px 20px;
+    padding: 10px 18px;
+    background-color: #397d70;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+/* Boutons */
+button,
+input[type="submit"] {
+    padding: 10px 18px;
+    background-color: #397d70;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: #529e8f;
+}
+
+/* Champs des formulaires */
+input[type="text"],
+input[type="password"] {
+    padding: 8px;
+    border: 1px solid #c5d4df;
+    border-radius: 5px;
+    max-width: 100%;
+}
+
+/* Liens du contenu */
+main a {
+    color: #397d70;
+    text-decoration: none;
+}
+
+main a:hover {
+    text-decoration: underline;
 }
 
 /* Adaptation aux petits écrans */
