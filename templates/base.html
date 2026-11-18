@@ -20,6 +20,7 @@
             <h1>SkillsExchange</h1>
         {% endblock %}
 
+        <div class="user-info">
         {# Informations de connexion communes à toutes les pages #}
         {% if user.is_authenticated %}
             <p>Vous êtes connecté en tant que : {{ user.username }}</p>
@@ -30,8 +31,15 @@
         {% else %}
             <a href="{% url 'skillsApp:login' %}" class="btn-login" >Se connecter</a>
         {% endif %}
-
+        </div>
     </header>
+    
+    {% if user.is_authenticated %}
+    <nav>
+        <a href="{% url 'skillsApp:choose_skill' %}">Partager vos compétences</a>
+    </nav>
+    {% endif %}
+
 
     <main>
         {% block main %}
