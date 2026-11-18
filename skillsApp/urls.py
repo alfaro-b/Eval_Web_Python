@@ -13,4 +13,6 @@ urlpatterns = [
     path("logout/", auth_views.LogoutView.as_view(next_page="skillsApp:index"), name="logout"),
     path("choose_skill/", views.choose_skill, name="choose_skill"),
     path("confirm_choice/", views.confirm_choice, name="confirm_choice"),
+    path("create_activity/", views.create_activity, name="create_activity"),
+    path("confirm_activity/", views.confirm_activity, name="confirm_activity"),
 ]

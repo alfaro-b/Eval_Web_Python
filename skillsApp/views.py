@@ -1,9 +1,10 @@
 from django.shortcuts import redirect, render
 from django.utils import timezone
 from django.views import generic
+from django.views.decorators.http import require_GET
 
-from .forms import SkillForm
-from .models import Skill, TimeSlot
+from .forms import SkillForm, ActivityForm
+from .models import Skill, Activity, TimeSlot
 
 
 class IndexView(generic.ListView):
@@ -56,6 +57,45 @@ def choose_skill(request):
     return render(request, "skillsApp/choose_skill.html", {"form": form})
 
 
+@require_GET
 def confirm_choice(request):
     """ Page de confirmation d'ajout de compétences """
     return render(request, "skillsApp/confirm_choice.html")
+
+
+def create_activity(request):
+    """ Permet à l'utilisateur connecté de créer une demande d'aide """
+
+    # Redirection vers l'accueil si l'utilisateur n'est pas connecté
+    if not request.user.is_authenticated:
+        return redirect("skillsApp:index")
+
+    if request.method == "POST":
+        # Formulaire lié aux données envoyées par l'utilisateur
+        form = ActivityForm(request.POST)
+
+        if form.is_valid():
+            # Création de l'activité sans l'enregistrer immédiatement
+            activity = form.save(commit=False)
+            # Association de l'activité à l'utilisateur connecté
+            activity.requester = request.user
+            # Enregistrement de l'activité dans la BDD
+            activity.save()
+
+            # Création du créneau associé à l'activité
+            TimeSlot.objects.create(
+                date=form.cleaned_data["date"],
+                activity=activity,
+            )
+            # Retour à l'accueil après l'enregistrement
+            return redirect("skillsApp:confirm_activity")
+    else:
+        # Affichage d'un formulaire vide lors de l'accès à la page
+        form = ActivityForm()
+    return render(request, "skillsApp/create_activity.html", {"form": form})
+
+
+@require_GET
+def confirm_activity(request):
+    """ Page de confirmation de création d'une activité. """
+    return render(request, "skillsApp/confirm_activity.html")

@@ -37,6 +37,7 @@
     {% if user.is_authenticated %}
     <nav>
         <a href="{% url 'skillsApp:choose_skill' %}">Partager vos compétences</a>
+        <a href="{% url 'skillsApp:create_activity' %}">Demander de l'aide</a>
     </nav>
     {% endif %}
 
