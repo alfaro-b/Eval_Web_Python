@@ -166,6 +166,29 @@ main a:hover {
     text-decoration: underline;
 }
 
+/* Tableaux des activités disponibles */
+.activities-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+/* En-têtes du tableau */
+.activities-table th {
+    background-color: #397d70;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+/* Cellules du tableau */
+.activities-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+/* Survol d'un ligne */
+.activities-table tbody tr:hover {
+    background-color: #e5f1eb;
+}
+
 /* Adaptation aux petits écrans */
 @media (max-width: 600px) {
     .banner {

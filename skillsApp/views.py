@@ -99,3 +99,29 @@ def create_activity(request):
 def confirm_activity(request):
     """ Page de confirmation de création d'une activité. """
     return render(request, "skillsApp/confirm_activity.html")
+
+
+@require_GET
+def activities_available(request):
+    """ Affiche les activités pour lesquelles l'utilisateur peut proposer son aide."""
+
+    # Redirection vers l'accueil si l'utilisateur n'est pas connecté
+    if not request.user.is_authenticated:
+        return redirect("skillsApp:index")
+
+    # Récupération des compétences proposées par l'utilisateur
+    user_skills = Skill.objects.filter(users=request.user)
+
+    # Recherche des activités disponibles correspondant à ses compétences
+    activities = Activity.objects.filter(
+        available=True,
+        skill__in=user_skills,
+        timeslot__date__gte=timezone.localdate()
+    ).exclude(
+        requester=request.user
+    ).distinct()
+
+    return render(request,
+                  "skillsApp/activities_available.html",
+                  {"activities": activities}
+                  )

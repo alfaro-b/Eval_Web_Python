@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+{% if user.is_authenticated %}
+
+    <section>
+        <h2>Proposer mon aide </h2>
+        {% if activities %}
+            <table class="activities-table">
+                <thead>
+                    <tr>
+                        <th> Activité</th>
+                        <th>Description</th>
+                        <th>Compétence nécessaire</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for activity in activities %}
+                        <tr>
+                            <td>{{ activity.title}}</td>
+                            <td>{{ activity.description}}</td>
+                            <td>{{activity.skill.name}}</td>
+                            <td>
+                                {% for slot in activity.timeslot_set.all %}
+                                    {{ slot.date|date:"d/m/Y"}}
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Aucune activité disponible ne correspond à vos compétences</p>
+        {% endif %}
+    </section>
+
+{% else %}
+    <p>Vous devez être connecté pour accéder à cette page.</p>
+    <a href="{% url 'skillsApp:index' %}"> Retour à la page d'accueil</a>
+{% endif %}
+
+{% endblock %}

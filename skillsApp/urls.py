@@ -15,4 +15,5 @@ urlpatterns = [
     path("confirm_choice/", views.confirm_choice, name="confirm_choice"),
     path("create_activity/", views.create_activity, name="create_activity"),
     path("confirm_activity/", views.confirm_activity, name="confirm_activity"),
+    path("activities_available/", views.activities_available, name="activities_available"),
 ]
