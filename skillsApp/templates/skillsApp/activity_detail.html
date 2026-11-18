@@ -19,14 +19,24 @@
 
             <h3>Créneaux proposés</h3>
 
-            {% for slot in slots %}
-                <div class="activity-slot">
-                    <span>{{ slot.date|date:"d/m/Y" }}</span>
-                    <button type="button" disabled>Proposer mon aide</button>
-                </div>
-            {% empty %}
+            {% if slots %}
+                <form action="{% url 'skillsApp:offer_help' activity.id %}" method="post">
+                    {% csrf_token %}
+
+                    <label for='slot'>Choisir une date : </label>
+
+                    <select name='slot' id='slot' required>
+                        {% for slot in slots %}
+                            <option value="{{ slot.id}}">
+                                {{ slot.date|date:"d/m/Y" }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit">Proposer mon aide</button>
+                </form>
+            {% else %}
                 <p>Aucun créneau disponible.</p>
-            {% endfor %}
+            {% endif %}
 
             <a href="{% url 'skillsApp:activities_available' %}" class="back-link">
                 Retour aux activités

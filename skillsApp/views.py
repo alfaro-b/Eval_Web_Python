@@ -1,9 +1,9 @@
 from multiprocessing import context
 
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.utils import timezone
 from django.views import generic
-from django.views.decorators.http import require_GET
+from django.views.decorators.http import require_GET, require_POST
 
 from .forms import SkillForm, ActivityForm
 from .models import Skill, Activity, TimeSlot
@@ -151,3 +151,45 @@ class ActivityDetailView(generic.DetailView):
 
         return context
 
+
+@require_POST
+def offer_help(request, pk):
+    """ Traite la proposition d'aide d'un utilisateur"""
+
+    # Redirection vers l'accueil si l'utilisateur n'est pas connecté
+    if not request.user.is_authenticated:
+        return redirect("skillsApp:index")
+
+    activity = get_object_or_404(Activity, pk=pk)
+    slot_id = request.POST.get("slot")
+    slot = get_object_or_404(TimeSlot, pk=slot_id, activity=activity)
+
+    # Vérification des compétences de l'utilisateur
+    if not activity.skill.users.filter(pk=request.user.pk).exists():
+        return redirect("skillsApp:activities_available")
+
+    # Vérification que l'utilisateur n'est pas le demandeur
+    if activity.requester == request.user:
+        return redirect("skillsApp:activities_available")
+
+    # Vérification de la disponibilité de l'activité
+    if not activity.available:
+        return redirect("skillsApp:activities_available")
+
+    # Vérification de la disponibilité du créneau
+    if slot.helper is not None or slot.date < timezone.localdate():
+        return redirect("skillsApp:activities_available")
+
+    # Vérification qu'aucun autre créneau n'a été accepté
+    if TimeSlot.objects.filter(activity=activity, helper__isnull=False).exists():
+        return redirect("skillsApp:activities_available")
+
+    # Enregistrement du volontaire
+    slot.helper = request.user
+    slot.save()
+
+    # L'activité devient indisponible
+    activity.available = False
+    activity.save()
+
+    return redirect("skillsApp:index")
