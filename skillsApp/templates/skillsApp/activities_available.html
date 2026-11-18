@@ -5,27 +5,29 @@
 {% if user.is_authenticated %}
 
     <section>
-        <h2>Proposer mon aide </h2>
+        <h2>Liste des activités disponibles </h2>
         {% if activities %}
             <table class="activities-table">
                 <thead>
                     <tr>
                         <th> Activité</th>
-                        <th>Description</th>
                         <th>Compétence nécessaire</th>
                         <th>Date</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for activity in activities %}
                         <tr>
                             <td>{{ activity.title}}</td>
-                            <td>{{ activity.description}}</td>
                             <td>{{activity.skill.name}}</td>
                             <td>
                                 {% for slot in activity.timeslot_set.all %}
                                     {{ slot.date|date:"d/m/Y"}}
                                 {% endfor %}
+                            </td>
+                            <td>
+                                <a href="{%url 'skillsApp:activity_detail' activity.id%}">Voir les détails</a>
                             </td>
                         </tr>
                     {% endfor %}

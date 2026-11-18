@@ -1,3 +1,5 @@
+from multiprocessing import context
+
 from django.shortcuts import redirect, render
 from django.utils import timezone
 from django.views import generic
@@ -116,7 +118,8 @@ def activities_available(request):
     activities = Activity.objects.filter(
         available=True,
         skill__in=user_skills,
-        timeslot__date__gte=timezone.localdate()
+        timeslot__date__gte=timezone.localdate(),
+        timeslot__helper__isnull=True
     ).exclude(
         requester=request.user
     ).distinct()
@@ -125,3 +128,26 @@ def activities_available(request):
                   "skillsApp/activities_available.html",
                   {"activities": activities}
                   )
+
+
+class ActivityDetailView(generic.DetailView):
+    """ Affiche le détail d'une activité et ses créneaux disponibles."""
+    model = Activity
+    template_name = "skillsApp/activity_detail.html"
+    context_object_name = "activity"
+
+    def get_queryset(self):
+        # Récupération des activités encore disponibles
+        return Activity.objects.filter(available=True)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Récupération des créneaux futurs sans volontaire
+        context["slots"] = TimeSlot.objects.filter(
+            activity=self.object,
+            date__gte=timezone.localdate(),
+            helper__isnull=True
+        ).order_by("date")
+
+        return context
+
