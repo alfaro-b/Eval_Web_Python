@@ -19,4 +19,5 @@ urlpatterns = [
     path("activity/<int:pk>/", views.ActivityDetailView.as_view(), name="activity_detail"),
     path("activity/<int:pk>/offer_help/", views.offer_help, name="offer_help"),
     path("confirm_help/", views.confirm_help, name="confirm_help"),
+    path("dashboard/", views.DashboardView.as_view(), name="dashboard"),
 ]

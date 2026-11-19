@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<section>
+    <h2>{{ user.username }},<br> Bienvenue sur SkillsExchange</h2>
+    <p>Partagez vos compétences et trouvez de l'aide.</p>
+</section>
+
+<section>
+    <h2>Mes demandes</h2>
+
+    <table class="dashboard">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for activity in activities %}
+            <tr>
+                <th>{{ activity.title }}</th>
+                <td>{{ activity.description }}</td>
+                <td>
+                {% for slot in activity.timeslot_set.all %}
+                    {{ slot.date|date:"d/m/Y" }}
+                {% empty %}
+                    <li>Aucun créneau enregistré.</li>
+                {% endfor %}
+                </td>
+            </tr>
+            {% empty %}
+                <p>Aucune demande créée.</p>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</section>
+
+<section>
+    <h2>Mes prochains rendez-vous</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Demandeur</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for timeslot in timeslots %}
+            <tr>
+                <th>{{ timeslot.date|date:"d/m/Y" }}</th>
+                <td>{{ timeslot.activity.title }}</td>
+                <td>{{ timeslot.activity.description }}</td>
+                <td>{{ timeslot.activity.requester.first_name }} {{ timeslot.activity.requester.last_name }}</td>
+            </tr>
+                {% empty %}
+                    <p>Aucun échange programmé.</p>
+                {% endfor %}
+        </tbody>
+    </table>
+
+
+</section>
+
+{% endblock %}

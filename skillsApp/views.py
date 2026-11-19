@@ -203,3 +203,18 @@ def offer_help(request, pk):
 def confirm_help(request):
     """ Page de confirmation de proposition d'aide. """
     return render(request, "skillsApp/confirm_help.html")
+
+
+class DashboardView(generic.TemplateView):
+    """ Affiche les demandes et les offres d'aide d'un utilisateur connecté"""
+    template_name = "skillsApp/dashboard.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context["activities"] = Activity.objects.filter(requester=self.request.user)
+        context["timeslots"] = TimeSlot.objects.filter(
+            helper=self.request.user,
+            date__gte=timezone.localdate()).order_by("date")
+
+        return context

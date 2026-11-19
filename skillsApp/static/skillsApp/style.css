@@ -237,6 +237,16 @@ main a:hover {
     margin-top: 25px;
 }
 
+/*Tableaux*/
+
+table, th, td {
+    border: 2px solid #2d6657;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 20px;
+}
+
 /* Adaptation aux petits écrans */
 @media (max-width: 600px) {
     .banner {
