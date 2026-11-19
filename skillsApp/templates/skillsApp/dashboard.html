@@ -34,11 +34,11 @@
                     </td>
 
                 {% empty %}
-                    <li>Aucun créneau enregistré.</li>
+                    <td>Aucun créneau enregistré.</td>
                 {% endfor %}
             </tr>
             {% empty %}
-                <p>Aucune demande créée.</p>
+                <tr>Aucune demande créée.</tr>
             {% endfor %}
         </tbody>
     </table>
@@ -69,9 +69,9 @@
                     {{ timeslot.activity.requester.email }}
                 </td>
             </tr>
-                {% empty %}
-                    <p>Aucun échange programmé.</p>
-                {% endfor %}
+            {% empty %}
+                <tr>Aucun échange programmé.</tr>
+            {% endfor %}
         </tbody>
     </table>
 
