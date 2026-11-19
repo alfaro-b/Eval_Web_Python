@@ -87,12 +87,7 @@ def create_activity(request):
             # Enregistrement de l'activité dans la BDD
             activity.save()
 
-            # Création du créneau associé à l'activité
-            # TimeSlot.objects.create(
-            #     date=form.cleaned_data["date"],
-            #     activity=activity,
-            # )
-
+            # Création des créneaux associés à l'activité
             slots = request.POST.getlist("dates")
             for slot in slots:
                 TimeSlot.objects.create(
