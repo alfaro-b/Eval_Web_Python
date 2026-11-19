@@ -1,5 +1,6 @@
 from multiprocessing import context
 
+from django.db import transaction
 from django.shortcuts import redirect, render, get_object_or_404
 from django.utils import timezone
 from django.views import generic
@@ -65,6 +66,7 @@ def confirm_choice(request):
     return render(request, "skillsApp/confirm_choice.html")
 
 
+@transaction.atomic
 def create_activity(request):
     """ Permet à l'utilisateur connecté de créer une demande d'aide """
 
@@ -184,13 +186,15 @@ def offer_help(request, pk):
     if TimeSlot.objects.filter(activity=activity, helper__isnull=False).exists():
         return redirect("skillsApp:activities_available")
 
-    # Enregistrement du volontaire
-    slot.helper = request.user
-    slot.save()
+    # Enregistrement en base avec transaction.atomic pour sécuriser bloc (les deux save s'enregistrent ou aucun si pb)
+    with transaction.atomic():
+        # Enregistrement du volontaire
+        slot.helper = request.user
+        slot.save()
 
-    # L'activité devient indisponible
-    activity.available = False
-    activity.save()
+        # L'activité devient indisponible
+        activity.available = False
+        activity.save()
 
     return redirect("skillsApp:confirm_help")
 
