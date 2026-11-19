@@ -1,5 +1,6 @@
 from multiprocessing import context
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import transaction
 from django.shortcuts import redirect, render, get_object_or_404
 from django.utils import timezone
@@ -132,8 +133,10 @@ def activities_available(request):
                   )
 
 
-class ActivityDetailView(generic.DetailView):
+class ActivityDetailView(LoginRequiredMixin, generic.DetailView):
     """ Affiche le détail d'une activité et ses créneaux disponibles."""
+    login_url = "/skillsApp/login/"
+
     model = Activity
     template_name = "skillsApp/activity_detail.html"
     context_object_name = "activity"
@@ -205,8 +208,9 @@ def confirm_help(request):
     return render(request, "skillsApp/confirm_help.html")
 
 
-class DashboardView(generic.TemplateView):
+class DashboardView(LoginRequiredMixin, generic.TemplateView):
     """ Affiche les demandes et les offres d'aide d'un utilisateur connecté"""
+    login_url = "/skillsApp/login/"
     template_name = "skillsApp/dashboard.html"
 
     def get_context_data(self, **kwargs):
