@@ -16,6 +16,7 @@
                 <th>Titre</th>
                 <th>Description</th>
                 <th>Date</th>
+                <th>Volontaire</th>
             </tr>
         </thead>
         <tbody>
@@ -23,13 +24,18 @@
             <tr>
                 <th>{{ activity.title }}</th>
                 <td>{{ activity.description }}</td>
-                <td>
+
                 {% for slot in activity.timeslot_set.all %}
-                    {{ slot.date|date:"d/m/Y" }}
+                    <td>{{ slot.date|date:"d/m/Y" }}</td>
+                    <td>
+                        {{ slot.helper.first_name}}
+                        {{ slot.helper.last_name}}
+                        {{ slot.helper.email}}
+                    </td>
+
                 {% empty %}
                     <li>Aucun créneau enregistré.</li>
                 {% endfor %}
-                </td>
             </tr>
             {% empty %}
                 <p>Aucune demande créée.</p>
@@ -40,7 +46,7 @@
 </section>
 
 <section>
-    <h2>Mes prochains rendez-vous</h2>
+    <h2>Mes prochains volontariats</h2>
 
     <table>
         <thead>
@@ -57,7 +63,11 @@
                 <th>{{ timeslot.date|date:"d/m/Y" }}</th>
                 <td>{{ timeslot.activity.title }}</td>
                 <td>{{ timeslot.activity.description }}</td>
-                <td>{{ timeslot.activity.requester.first_name }} {{ timeslot.activity.requester.last_name }}</td>
+                <td>
+                    {{ timeslot.activity.requester.first_name }}
+                    {{ timeslot.activity.requester.last_name }}
+                    {{ timeslot.activity.requester.email }}
+                </td>
             </tr>
                 {% empty %}
                     <p>Aucun échange programmé.</p>
