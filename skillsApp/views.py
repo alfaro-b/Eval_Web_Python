@@ -192,4 +192,10 @@ def offer_help(request, pk):
     activity.available = False
     activity.save()
 
-    return redirect("skillsApp:index")
+    return redirect("skillsApp:confirm_help")
+
+
+@require_GET
+def confirm_help(request):
+    """ Page de confirmation de proposition d'aide. """
+    return render(request, "skillsApp/confirm_help.html")

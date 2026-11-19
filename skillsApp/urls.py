@@ -18,4 +18,5 @@ urlpatterns = [
     path("activities_available/", views.activities_available, name="activities_available"),
     path("activity/<int:pk>/", views.ActivityDetailView.as_view(), name="activity_detail"),
     path("activity/<int:pk>/offer_help/", views.offer_help, name="offer_help"),
+    path("confirm_help/", views.confirm_help, name="confirm_help"),
 ]
