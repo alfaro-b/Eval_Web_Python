@@ -14,12 +14,20 @@
 
             {{ form.as_p }}
 
+            <label>
+            Choisissez une ou plusieurs dates
+            <input type="date" name="dates"/>
+            <input type="date" name="dates"/>
+            <input type="date" name="dates"/>
+            </label>
+
             <button type="submit">Enregistrer</button>
 
             <a href="{% url 'skillsApp:index' %}" class="btn-cancel">
                 Annuler
             </a>
         </form>
+
     </section>
 
 {% else %}

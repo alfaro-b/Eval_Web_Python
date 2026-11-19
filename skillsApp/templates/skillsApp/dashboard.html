@@ -24,18 +24,18 @@
             <tr>
                 <th>{{ activity.title }}</th>
                 <td>{{ activity.description }}</td>
-
+                <td>
                 {% for slot in activity.timeslot_set.all %}
-                    <td>{{ slot.date|date:"d/m/Y" }}</td>
-                    <td>
-                        {{ slot.helper.first_name}}
-                        {{ slot.helper.last_name}}
-                        {{ slot.helper.email}}
-                    </td>
-
+                    {{ slot.date|date:"d/m/Y" }}
                 {% empty %}
-                    <td>Aucun créneau enregistré.</td>
+                Aucun créneau enregistré.
                 {% endfor %}
+                </td>
+                <td>
+                    {{ slot.helper.first_name}}
+                    {{ slot.helper.last_name}}
+                    {{ slot.helper.email}}
+                </td>
             </tr>
             {% empty %}
                 <tr>Aucune demande créée.</tr>

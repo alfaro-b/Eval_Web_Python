@@ -15,10 +15,10 @@ class SkillForm(forms.Form):
 
 class ActivityForm(forms.ModelForm):
     """ Formulaire de création d'une demande d'aide"""
-    date = forms.DateField(
-        label='Date proposée',
-        widget=forms.DateInput(attrs={'type': 'date'})
-    )
+    # date = forms.DateField(
+    #     label='Date proposée',
+    #     widget=forms.DateInput(attrs={'type': 'date'})
+    # )
 
     class Meta:
         model = Activity
