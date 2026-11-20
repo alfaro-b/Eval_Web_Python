@@ -15,6 +15,13 @@
 
             <div class="activity-description">
                 <p>{{ activity.description }}</p>
+                <p>
+                    Demandeur :
+                    {{ activity.requester.username}}<br>
+                    {{ activity.requester.first_name}}
+                    {{ activity.requester.last_name}}<br>
+                    {{ activity.requester.email}}
+                </p>
             </div>
 
             <h3>Créneaux proposés</h3>
