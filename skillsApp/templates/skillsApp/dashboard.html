@@ -32,9 +32,17 @@
                 {% endfor %}
                 </td>
                 <td>
-                    {{ slot.helper.first_name}}
-                    {{ slot.helper.last_name}}
-                    {{ slot.helper.email}}
+                    {% for slot in activity.timeslot_set.all %}
+                        {% if slot.helper %}
+                            <p>
+                            {{ slot.helper.first_name}}
+                            {{ slot.helper.last_name}}
+                            {{ slot.helper.email}}
+                            </p>
+                        {% else %}
+                            <p>En attente de volontaire</p>
+                        {% endif %}
+                    {% endfor %}
                 </td>
             </tr>
             {% empty %}
