@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" pages="4" rtKey="a7943e8d.Pep7Q4ExezduJYoGHY6V2URmc3xvQkmz">
+<mxfile host="app.diagrams.net" pages="4" rtKey="0a743f8e.gxJRm5CFXmzzWwp3hzMGM2CALcaSAe0H">
   <diagram name="diagramme Cas d&#39;utilisation" id="8NJQsgImoE8vw1KOsi19">
     <mxGraphModel dx="1560" dy="940" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -260,74 +260,83 @@
     </mxGraphModel>
   </diagram>
   <diagram id="HLyksShiwW1542ef39vK" name="diagramme de séquence">
-    <mxGraphModel dx="2646" dy="904" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="4129" dy="1625" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="qmiGS9SeICQ33bJsu2CE-4" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#fff2cc;strokeColor=#d6b656;" value="BDD" vertex="1">
-          <mxGeometry height="491.16" width="100" x="-140" y="258.84" as="geometry" />
+          <mxGeometry height="847.16" width="100" x="-140" y="258.84" as="geometry" />
         </mxCell>
         <mxCell id="xNa2VnCuTW851xpcl4uz-1" parent="qmiGS9SeICQ33bJsu2CE-4" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#fff2cc;strokeColor=#d6b656;" value="" vertex="1">
-          <mxGeometry height="78.84" width="10" x="45" y="131.16" as="geometry" />
+          <mxGeometry height="62.84" width="10" x="45" y="111.16" as="geometry" />
+        </mxCell>
+        <mxCell id="vFQqmZifFusf-63gjRXM-13" parent="qmiGS9SeICQ33bJsu2CE-4" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#fff2cc;strokeColor=#d6b656;" value="" vertex="1">
+          <mxGeometry height="69.84" width="10" x="45" y="223.16" as="geometry" />
         </mxCell>
         <mxCell id="qmiGS9SeICQ33bJsu2CE-5" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Application" vertex="1">
-          <mxGeometry height="541.16" width="100" x="-840" y="258.84" as="geometry" />
+          <mxGeometry height="869" width="100" x="-840" y="252" as="geometry" />
         </mxCell>
         <mxCell id="qmiGS9SeICQ33bJsu2CE-28" parent="qmiGS9SeICQ33bJsu2CE-5" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#dae8fc;strokeColor=#6c8ebf;" value="" vertex="1">
-          <mxGeometry height="440" width="10" x="45" y="101.16" as="geometry" />
+          <mxGeometry height="288" width="10" x="45" y="59" as="geometry" />
         </mxCell>
         <mxCell id="mGTUhWq-cNpBSrjD762y-1" edge="1" parent="qmiGS9SeICQ33bJsu2CE-5" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;edgeStyle=orthogonalEdgeStyle;innerLoopWaypoints=1;" value="Vérifie les données du formulaire">
-          <mxGeometry relative="1" x="0.1176" y="60" as="geometry">
+          <mxGeometry relative="1" x="0.087" y="20" as="geometry">
             <mxPoint as="offset" />
             <Array as="points">
-              <mxPoint x="110" y="291.16" />
-              <mxPoint x="110" y="351.16" />
+              <mxPoint x="140" y="428.16" />
+              <mxPoint x="140" y="488.16" />
             </Array>
-            <mxPoint x="55" y="291.16" as="sourcePoint" />
-            <mxPoint x="55" y="351.16" as="targetPoint" />
+            <mxPoint x="55" y="428.16" as="sourcePoint" />
+            <mxPoint x="55" y="488.16" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="vFQqmZifFusf-63gjRXM-11" parent="qmiGS9SeICQ33bJsu2CE-5" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#dae8fc;strokeColor=#6c8ebf;" value="" vertex="1">
+          <mxGeometry height="448" width="10" x="45" y="406" as="geometry" />
+        </mxCell>
         <mxCell id="qmiGS9SeICQ33bJsu2CE-8" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#d5e8d4;strokeColor=#82b366;" value="Skill&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;(objet Django)&lt;/font&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="511.16" width="100" x="-480" y="258.84" as="geometry" />
+          <mxGeometry height="847.16" width="100" x="-480" y="258.84" as="geometry" />
         </mxCell>
         <mxCell id="qmiGS9SeICQ33bJsu2CE-9" parent="qmiGS9SeICQ33bJsu2CE-8" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#d5e8d4;strokeColor=#82b366;" value="" vertex="1">
-          <mxGeometry height="133.55" width="10" x="45" y="110" as="geometry" />
+          <mxGeometry height="97.84" width="10" x="45" y="76.16" as="geometry" />
         </mxCell>
         <mxCell id="mGTUhWq-cNpBSrjD762y-6" parent="qmiGS9SeICQ33bJsu2CE-8" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#d5e8d4;strokeColor=#82b366;" value="" vertex="1">
-          <mxGeometry height="138.84" width="10" x="45" y="361.16" as="geometry" />
+          <mxGeometry height="138.84" width="10" x="45" y="568.1600000000001" as="geometry" />
+        </mxCell>
+        <mxCell id="vFQqmZifFusf-63gjRXM-12" parent="qmiGS9SeICQ33bJsu2CE-8" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#d5e8d4;strokeColor=#82b366;" value="" vertex="1">
+          <mxGeometry height="97.84" width="10" x="45" y="214.16" as="geometry" />
         </mxCell>
         <mxCell id="qmiGS9SeICQ33bJsu2CE-10" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Utilisateur connecté" vertex="1">
-          <mxGeometry height="63.88888888888889" width="30" x="-1090" y="250.00481481481484" as="geometry" />
+          <mxGeometry height="63.88888888888889" width="30" x="-1090" y="230.00481481481484" as="geometry" />
         </mxCell>
-        <mxCell id="qmiGS9SeICQ33bJsu2CE-11" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="qmiGS9SeICQ33bJsu2CE-28" value="Visualiser les compétences disponibles">
-          <mxGeometry relative="1" x="0.0182" y="10" as="geometry">
+        <mxCell id="qmiGS9SeICQ33bJsu2CE-11" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="Visualiser les compétences disponibles">
+          <mxGeometry relative="1" x="-0.0327" y="2" as="geometry">
             <mxPoint as="offset" />
-            <mxPoint x="-1070" y="380.0000000000003" as="sourcePoint" />
-            <mxPoint x="-825" y="380.0000000000003" as="targetPoint" />
+            <mxPoint x="-1070" y="353.0000000000003" as="sourcePoint" />
+            <mxPoint x="-795" y="353.0000000000002" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="qmiGS9SeICQ33bJsu2CE-12" parent="1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#e1d5e7;strokeColor=#9673a6;" value="" vertex="1">
-          <mxGeometry height="440" width="10" x="-1080" y="360" as="geometry" />
+          <mxGeometry height="681" width="10" x="-1080" y="337.84" as="geometry" />
         </mxCell>
-        <mxCell id="qmiGS9SeICQ33bJsu2CE-13" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="qmiGS9SeICQ33bJsu2CE-9" value="Récupérer les compétences disponibles Skill.objects.all()">
-          <mxGeometry relative="1" y="10" as="geometry">
+        <mxCell id="qmiGS9SeICQ33bJsu2CE-13" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="Récupérer les compétences disponibles&amp;nbsp;&lt;div&gt;Skill.objects.all()&lt;/div&gt;">
+          <mxGeometry relative="1" x="0.0057" as="geometry">
             <mxPoint as="offset" />
-            <mxPoint x="-785" y="390" as="sourcePoint" />
-            <mxPoint x="-430.5" y="390" as="targetPoint" />
+            <mxPoint x="-785" y="362" as="sourcePoint" />
+            <mxPoint x="-434.9999999999998" y="362" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qmiGS9SeICQ33bJsu2CE-14" edge="1" parent="1" source="qmiGS9SeICQ33bJsu2CE-9" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="Liste des compétences Queryset (0 à&amp;nbsp; n skills)">
-          <mxGeometry relative="1" y="-10" as="geometry">
+        <mxCell id="qmiGS9SeICQ33bJsu2CE-14" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="Compétences disponibles">
+          <mxGeometry relative="1" x="-0.0057" y="-3" as="geometry">
             <mxPoint as="offset" />
-            <mxPoint x="-430.5" y="479.9999999999999" as="sourcePoint" />
-            <mxPoint x="-785" y="479.9999999999999" as="targetPoint" />
+            <mxPoint x="-434.9999999999998" y="426" as="sourcePoint" />
+            <mxPoint x="-785" y="425.9999999999999" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="qmiGS9SeICQ33bJsu2CE-17" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;exitX=-0.1;exitY=0.854;exitDx=0;exitDy=0;exitPerimeter=0;" value="Fin de l&#39;opération">
           <mxGeometry relative="1" x="-0.0086" y="-10" as="geometry">
             <mxPoint as="offset" />
-            <mxPoint x="-436" y="749.9997000000001" as="sourcePoint" />
-            <mxPoint x="-785" y="749.9997000000001" as="targetPoint" />
+            <mxPoint x="-436" y="926.9997000000001" as="sourcePoint" />
+            <mxPoint x="-785" y="926.9997000000001" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="qmiGS9SeICQ33bJsu2CE-24" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 22px;&quot;&gt;Diagramme de séquence&amp;nbsp;&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;font style=&quot;font-size: 22px;&quot;&gt;Pour un utilisateur connecté, indiquer les compétences qu&#39;il propose&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;" vertex="1">
@@ -336,76 +345,131 @@
         <mxCell id="qmiGS9SeICQ33bJsu2CE-25" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#004C99;fillColor=#bac8d3;align=left;verticalAlign=middle;rounded=0;spacingLeft=10;" value="&lt;div style=&quot;line-height: 160%;&quot;&gt;Cas d&#39;utilisation : Pour un utilisateur connecté, indiquer les compétences qu&#39;il propose&lt;div&gt;Acteur : Utilisateur connecté&lt;/div&gt;&lt;div&gt;Précondition : l&#39;utilisateur doit être connecté (authentification réussi)&lt;/div&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="85.19" width="522" x="-828.5" y="110" as="geometry" />
         </mxCell>
-        <mxCell id="qmiGS9SeICQ33bJsu2CE-46" parent="1" style="shape=note;size=20;whiteSpace=wrap;html=1;align=left;spacingLeft=5;" value="&lt;div style=&quot;line-height: 150%;&quot;&gt;&lt;b&gt;Explication&lt;/b&gt;&lt;div&gt;1. L&#39;utilisateur connecté accède au formulaire de sélection des compétences.&lt;/div&gt;&lt;div&gt;2. L&#39;application récupère les compétences disponibles dans la base de données et affiche le formulaire.&lt;/div&gt;&lt;div&gt;3. L&#39;utilisateur sélectionne la ou les compétences qu&#39;il souhaite proposer et valide le formulaire.&lt;/div&gt;&lt;div&gt;4. Après validation, l&#39;application met à jour les associations entre l&#39;utilisateur et les compétences, puis redirige vers la page de confirmation.&lt;/div&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="108.85" width="797.5" x="-967.5" y="827" as="geometry" />
+        <mxCell id="qmiGS9SeICQ33bJsu2CE-46" parent="1" style="shape=note;size=20;whiteSpace=wrap;html=1;align=left;spacingLeft=5;" value="&lt;div style=&quot;line-height: 150%;&quot;&gt;&lt;b&gt;Explication&lt;/b&gt;&lt;div&gt;1. L&#39;utilisateur connecté accède au formulaire de sélection des compétences.&lt;/div&gt;&lt;div&gt;2. L&#39;application récupère les compétences disponibles&amp;nbsp; ainsi que celles déjà proposées par l&#39;utilisateur, puis affiche le formulaire en précochant les compétences précédemment sélectionnées.&lt;/div&gt;&lt;div&gt;3. L&#39;utilisateur sélectionne la ou les compétences qu&#39;il souhaite proposer et valide le formulaire.&lt;/div&gt;&lt;div&gt;4. Si le formulaire est valide, l&#39;application met à jour les associations entre l&#39;utilisateur et les compétences, puis redirige vers la page de confirmation.&lt;/div&gt;&lt;div&gt;5. Si le formulaire est invalide, l&#39;application réaffiche le formulaire avec les erreurs afin de permettre à l&#39;utilisateur de corriger sa sélection.&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="146" width="1040" x="-1080" y="1185" as="geometry" />
         </mxCell>
-        <mxCell id="xNa2VnCuTW851xpcl4uz-2" edge="1" parent="1" source="qmiGS9SeICQ33bJsu2CE-9" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="Lecture des compétences">
+        <mxCell id="xNa2VnCuTW851xpcl4uz-2" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="Lecture des compétences">
           <mxGeometry relative="1" y="4" as="geometry">
             <mxPoint as="offset" />
-            <mxPoint x="-579" y="414.00481481481484" as="sourcePoint" />
-            <mxPoint x="-95" y="414.0048148148148" as="targetPoint" />
+            <mxPoint x="-424.9999999999998" y="377.00481481481484" as="sourcePoint" />
+            <mxPoint x="-95" y="377.0048148148148" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="xNa2VnCuTW851xpcl4uz-3" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="qmiGS9SeICQ33bJsu2CE-9" value="Compétences enregistrées">
+        <mxCell id="xNa2VnCuTW851xpcl4uz-3" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="Liste des compétences&amp;nbsp;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-95" y="449.99999999999994" as="sourcePoint" />
-            <mxPoint x="-578.9999999999998" y="449.99999999999994" as="targetPoint" />
+            <mxPoint x="-95" y="414.99999999999994" as="sourcePoint" />
+            <mxPoint x="-424.9999999999998" y="415" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="xNa2VnCuTW851xpcl4uz-4" edge="1" parent="1" source="qmiGS9SeICQ33bJsu2CE-28" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="Afficher le formulaire">
-          <mxGeometry relative="1" x="0.0545" y="-11" as="geometry">
+        <mxCell id="xNa2VnCuTW851xpcl4uz-4" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="Afficher le formulaire avec les compétences précochées">
+          <mxGeometry relative="1" x="0.0109" y="-4" as="geometry">
             <mxPoint as="offset" />
-            <mxPoint x="-825" y="491.2399999999999" as="sourcePoint" />
-            <mxPoint x="-1070" y="491.2399999999999" as="targetPoint" />
+            <mxPoint x="-795" y="589.9999999999998" as="sourcePoint" />
+            <mxPoint x="-1070" y="589.9999999999999" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="xNa2VnCuTW851xpcl4uz-6" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="qmiGS9SeICQ33bJsu2CE-28" value="Sélectionne&amp;nbsp; les compétences qu&#39;il peut offrir">
-          <mxGeometry relative="1" x="0.0182" y="10" as="geometry">
+        <mxCell id="xNa2VnCuTW851xpcl4uz-6" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="Valider la sélection">
+          <mxGeometry relative="1" x="-0.0545" y="4" as="geometry">
             <mxPoint as="offset" />
-            <mxPoint x="-1070" y="530.0049999999999" as="sourcePoint" />
-            <mxPoint x="-825" y="530.0049999999999" as="targetPoint" />
+            <mxPoint x="-1070" y="667.0049999999999" as="sourcePoint" />
+            <mxPoint x="-795" y="667.0049999999999" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="-OwnG2-yaeRyPjPEYIpW-4" edge="1" parent="1" source="mGTUhWq-cNpBSrjD762y-6" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="Mise à jour de la table d&#39;associations">
           <mxGeometry relative="1" x="-0.0576" y="10" as="geometry">
             <mxPoint as="offset" />
-            <mxPoint x="-335" y="680.0050000000001" as="sourcePoint" />
-            <mxPoint x="-95" y="680.0050000000001" as="targetPoint" />
+            <mxPoint x="-335" y="887.0050000000001" as="sourcePoint" />
+            <mxPoint x="-95" y="887.0050000000001" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="-OwnG2-yaeRyPjPEYIpW-6" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="mGTUhWq-cNpBSrjD762y-6" value="Enregistrement effectué">
           <mxGeometry relative="1" x="0.0182" y="-9" as="geometry">
             <mxPoint as="offset" />
             <Array as="points">
-              <mxPoint x="-340" y="718.85" />
+              <mxPoint x="-340" y="925.85" />
             </Array>
-            <mxPoint x="-95" y="718.85" as="sourcePoint" />
-            <mxPoint x="-335" y="718.85" as="targetPoint" />
+            <mxPoint x="-95" y="925.85" as="sourcePoint" />
+            <mxPoint x="-335" y="925.85" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="mGTUhWq-cNpBSrjD762y-4" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" target="qmiGS9SeICQ33bJsu2CE-15" value="">
           <mxGeometry relative="1" x="-0.0245" as="geometry">
             <mxPoint as="offset" />
-            <mxPoint x="-95" y="680" as="sourcePoint" />
-            <mxPoint x="-335" y="680" as="targetPoint" />
+            <mxPoint x="-95" y="887" as="sourcePoint" />
+            <mxPoint x="-335" y="887" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="qmiGS9SeICQ33bJsu2CE-15" parent="1" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#fff2cc;strokeColor=#d6b656;" value="" vertex="1">
-          <mxGeometry height="63.89" width="10" x="-95" y="670" as="geometry" />
+          <mxGeometry height="63.89" width="10" x="-95" y="877" as="geometry" />
         </mxCell>
-        <mxCell id="mGTUhWq-cNpBSrjD762y-5" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" target="mGTUhWq-cNpBSrjD762y-6" value="Mettre à jour les associations User-Skill">
+        <mxCell id="mGTUhWq-cNpBSrjD762y-5" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="Mettre à jour les associations User-Skill">
           <mxGeometry relative="1" x="0.0114" y="7" as="geometry">
             <mxPoint as="offset" />
-            <mxPoint x="-785" y="650" as="sourcePoint" />
-            <mxPoint x="-430.5" y="650" as="targetPoint" />
+            <mxPoint x="-785" y="857.0000000000002" as="sourcePoint" />
+            <mxPoint x="-435" y="857.0000000000002" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="mGTUhWq-cNpBSrjD762y-7" edge="1" parent="1" source="qmiGS9SeICQ33bJsu2CE-28" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="Redirection&amp;nbsp; vers la confirmation">
+        <mxCell id="mGTUhWq-cNpBSrjD762y-7" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="Redirection&amp;nbsp; vers la confirmation">
           <mxGeometry relative="1" x="0.0655" y="-10" as="geometry">
             <mxPoint as="offset" />
-            <mxPoint x="-844.9999999999998" y="790.0033333333336" as="sourcePoint" />
-            <mxPoint x="-1070" y="790" as="targetPoint" />
+            <mxPoint x="-795" y="977" as="sourcePoint" />
+            <mxPoint x="-1070" y="977" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="vFQqmZifFusf-63gjRXM-1" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=60;height=30;fillColor=#e1d5e7;strokeColor=#9673a6;" value="alt:&amp;nbsp;" vertex="1">
+          <mxGeometry height="368.84" width="1040" x="-1080" y="777" as="geometry" />
+        </mxCell>
+        <mxCell id="vFQqmZifFusf-63gjRXM-5" parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;rounded=0;fontColor=light-dark(#A680B8,#EDEDED);" value="[form.is_valid() == True]" vertex="1">
+          <mxGeometry height="30" width="160" x="-1060" y="807" as="geometry" />
+        </mxCell>
+        <mxCell id="vFQqmZifFusf-63gjRXM-6" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.998;entryY=0.659;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#A680B8;labelBorderColor=#A680B8;fillColor=#e1d5e7;strokeColor=#9673a6;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="-1077.92" y="1007.04" as="sourcePoint" />
+            <mxPoint x="-40.000000000000384" y="1006.9999999999998" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vFQqmZifFusf-63gjRXM-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;fontColor=#A680B8;" value="[form.is_valid()==False]" vertex="1">
+          <mxGeometry height="30" width="125" x="-1060" y="1017" as="geometry" />
+        </mxCell>
+        <mxCell id="vFQqmZifFusf-63gjRXM-8" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="Réafficher le formulaire avec les erreurs">
+          <mxGeometry relative="1" x="0.0655" y="-10" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="-795" y="1087" as="sourcePoint" />
+            <mxPoint x="-1070" y="1087" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vFQqmZifFusf-63gjRXM-10" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="Récupérer les compétences de l&#39;utilisateur&amp;nbsp;&lt;div&gt;S&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(#000000, var(--ge-light-color, #ffffff));&quot;&gt;kill.objects.filter(users=request.user)&lt;/span&gt;&lt;/div&gt;">
+          <mxGeometry relative="1" y="4" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="-785" y="483" as="sourcePoint" />
+            <mxPoint x="-435" y="483" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vFQqmZifFusf-63gjRXM-14" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="Lecture des compétences de l&#39;utilisateur">
+          <mxGeometry relative="1" y="4" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="-425" y="501.00000000000006" as="sourcePoint" />
+            <mxPoint x="-95.00000000000023" y="501" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vFQqmZifFusf-63gjRXM-15" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="Compétences associées">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-95.00000000000023" y="537" as="sourcePoint" />
+            <mxPoint x="-425" y="537" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vFQqmZifFusf-63gjRXM-16" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" value="Compétences déjà sélectionnées">
+          <mxGeometry relative="1" x="-0.0057" y="-3" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="-434.9999999999998" y="558.0000000000001" as="sourcePoint" />
+            <mxPoint x="-785" y="558" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vFQqmZifFusf-63gjRXM-17" parent="1" style="shape=note;size=20;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;gradientColor=#b3b3b3;" value="1. Récupération de toutes les compétences disponibles" vertex="1">
+          <mxGeometry height="55.84" width="256" x="-1060" y="373.5" as="geometry" />
+        </mxCell>
+        <mxCell id="vFQqmZifFusf-63gjRXM-18" parent="1" style="shape=note;size=20;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;gradientColor=#b3b3b3;" value="2. Récupération des compétences déjà proposées par l&#39;utilisateur" vertex="1">
+          <mxGeometry height="55.84" width="256" x="-1060" y="489" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
