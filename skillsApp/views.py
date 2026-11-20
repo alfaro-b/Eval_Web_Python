@@ -55,8 +55,10 @@ def choose_skill(request):
             return redirect("skillsApp:confirm_choice")
 
     else:
-        # Création d'un formulaire vide
-        form = SkillForm()
+        # Récupération des compétences déjà proposées par l'utilisateur
+        user_skills = Skill.objects.filter(users=request.user)
+        # Préremplissage du formulaire
+        form = SkillForm(initial={"skill": user_skills})
 
     return render(request, "skillsApp/choose_skill.html", {"form": form})
 
