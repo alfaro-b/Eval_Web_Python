@@ -90,10 +90,11 @@ def create_activity(request):
             # Création des créneaux associés à l'activité
             slots = request.POST.getlist("dates")
             for slot in slots:
-                TimeSlot.objects.create(
-                    date=slot,
-                    activity=activity,
-                )
+                if slot:
+                    TimeSlot.objects.create(
+                        date=slot,
+                        activity=activity,
+                    )
 
             # Retour à l'accueil après l'enregistrement
             return redirect("skillsApp:confirm_activity")
