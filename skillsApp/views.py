@@ -170,7 +170,7 @@ def offer_help(request, pk):
 
     activity = get_object_or_404(Activity, pk=pk)
     slot_id = request.POST.get("slot")
-    slot = get_object_or_404(TimeSlot, pk=slot_id, activity=activity)
+    selected_slot = get_object_or_404(TimeSlot, pk=slot_id, activity=activity)
 
     # Vérification des compétences de l'utilisateur
     if not activity.skill.users.filter(pk=request.user.pk).exists():
@@ -185,7 +185,7 @@ def offer_help(request, pk):
         return redirect("skillsApp:activities_available")
 
     # Vérification de la disponibilité du créneau
-    if slot.helper is not None or slot.date < timezone.localdate():
+    if selected_slot.helper is not None or selected_slot.date < timezone.localdate():
         return redirect("skillsApp:activities_available")
 
     # Vérification qu'aucun autre créneau n'a été accepté
@@ -194,9 +194,12 @@ def offer_help(request, pk):
 
     # Enregistrement en base avec transaction.atomic pour sécuriser bloc (les deux save s'enregistrent ou aucun si pb)
     with transaction.atomic():
+        # Suppression des créneaux non retenus
+        TimeSlot.objects.filter(activity=activity).exclude(pk=slot_id).delete()
+
         # Enregistrement du volontaire
-        slot.helper = request.user
-        slot.save()
+        selected_slot.helper = request.user
+        selected_slot.save()
 
         # L'activité devient indisponible
         activity.available = False
