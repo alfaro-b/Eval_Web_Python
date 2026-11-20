@@ -7,7 +7,7 @@ class SkillForm(forms.Form):
     """ Formulaire de sélections des compétences"""
     skill = forms.ModelMultipleChoiceField(
         queryset=Skill.objects.all(),
-        widget=forms.SelectMultiple,
+        widget=forms.CheckboxSelectMultiple,
         label='Compétences proposées',
         required=False,
     )
