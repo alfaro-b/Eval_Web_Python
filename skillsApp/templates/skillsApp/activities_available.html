@@ -23,7 +23,7 @@
                             <td>{{activity.skill.name}}</td>
                             <td>
                                 {% for slot in activity.timeslot_set.all %}
-                                    {{ slot.date|date:"d/m/Y"}}
+                                    {{ slot.date|date:"d/m/Y"}}<br>
                                 {% endfor %}
                             </td>
                             <td>
