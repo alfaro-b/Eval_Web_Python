@@ -223,8 +223,11 @@ class DashboardView(LoginRequiredMixin, generic.TemplateView):
         context = super().get_context_data(**kwargs)
 
         context["activities"] = Activity.objects.filter(requester=self.request.user)
+
         context["timeslots"] = TimeSlot.objects.filter(
             helper=self.request.user,
             date__gte=timezone.localdate()).order_by("date")
+
+        context["skills"] = Skill.objects.filter(users=self.request.user)
 
         return context

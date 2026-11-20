@@ -8,6 +8,16 @@
 </section>
 
 <section>
+    <h2>Mes compétences proposées</h2>
+    {% for skill in skills %}
+        {{ skill.name }}<br>
+    {% empty %}
+        <p>Aucune compétence proposée.</p>
+    {% endfor %}
+    <a href="{% url 'skillsApp:choose_skill' %}">Modifier mes compétences</a>
+</section>
+
+<section>
     <h2>Mes demandes</h2>
 
     <table class="dashboard">
@@ -26,7 +36,7 @@
                 <td>{{ activity.description }}</td>
                 <td>
                 {% for slot in activity.timeslot_set.all %}
-                    {{ slot.date|date:"d/m/Y" }}
+                    {{ slot.date|date:"d/m/Y" }}<br>
                 {% empty %}
                 Aucun créneau enregistré.
                 {% endfor %}
@@ -40,7 +50,7 @@
                             {{ slot.helper.email}}
                             </p>
                         {% else %}
-                            <p>En attente de volontaire</p>
+                            <p>Aucun</p>
                         {% endif %}
                     {% endfor %}
                 </td>
