@@ -1,11 +1,12 @@
-from multiprocessing import context
-
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import transaction
 from django.shortcuts import redirect, render, get_object_or_404
 from django.utils import timezone
 from django.views import generic
 from django.views.decorators.http import require_GET, require_POST
+from django.http import HttpRequest, HttpResponse
+from typing import Any  # Type utilisé lorsque plusieurs types de valeurs sont possibles
+from django.db.models import QuerySet
 
 from .forms import SkillForm, ActivityForm
 from .models import Skill, Activity, TimeSlot
@@ -18,10 +19,15 @@ class IndexView(generic.ListView):
     template_name = "skillsApp/index.html"
     context_object_name = "skills"
 
-    def get_context_data(self, **kwargs):
+    # Ajoute des données au contexte envoyé au template HTML.
+    # Le contexte est un dictionnaire contenant les données à afficher.
+    # **kwargs: Any accepte des arguments supplémentaires de différents types.
+    # dict[str, Any] indique que la méthode retourne un dictionnaire avec des clés str et des valeurs de types variés.
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        # Récupération du contexte déjà préparé par la ListView
         context = super().get_context_data(**kwargs)
 
-        # Récupération des créneaux confirmés à partir d'aujourd'hui
+        # Ajout des prochains créneaux confirmés au contexte
         context["upcoming_slots"] = TimeSlot.objects.filter(
             date__gte=timezone.localdate(),
             helper__isnull=False
@@ -30,7 +36,7 @@ class IndexView(generic.ListView):
         return context
 
 
-def choose_skill(request):
+def choose_skill(request: HttpRequest) -> HttpResponse:
     """ Permet à un utilisateur connecté de choisir ses compétences """
 
     # Redirection vers l'accueil si l'utilisateur n'est pas connecté
@@ -64,13 +70,13 @@ def choose_skill(request):
 
 
 @require_GET
-def confirm_choice(request):
+def confirm_choice(request: HttpRequest) -> HttpResponse:
     """ Page de confirmation d'ajout de compétences """
     return render(request, "skillsApp/confirm_choice.html")
 
 
 @transaction.atomic
-def create_activity(request):
+def create_activity(request: HttpRequest) -> HttpResponse:
     """ Permet à l'utilisateur connecté de créer une demande d'aide """
 
     # Redirection vers l'accueil si l'utilisateur n'est pas connecté
@@ -107,13 +113,13 @@ def create_activity(request):
 
 
 @require_GET
-def confirm_activity(request):
+def confirm_activity(request: HttpRequest) -> HttpResponse:
     """ Page de confirmation de création d'une activité. """
     return render(request, "skillsApp/confirm_activity.html")
 
 
 @require_GET
-def activities_available(request):
+def activities_available(request: HttpRequest) -> HttpResponse:
     """ Affiche les activités pour lesquelles l'utilisateur peut proposer son aide."""
 
     # Redirection vers l'accueil si l'utilisateur n'est pas connecté
@@ -147,12 +153,17 @@ class ActivityDetailView(LoginRequiredMixin, generic.DetailView):
     template_name = "skillsApp/activity_detail.html"
     context_object_name = "activity"
 
-    def get_queryset(self):
+    # Limite les activités récupérées aux activités encore disponibles.
+    # QuerySet[Activity] indique que la méthode retourne un ensemble d'objets Activity provenant de la BDD.
+    def get_queryset(self) -> QuerySet[Activity]:
         # Récupération des activités encore disponibles
         return Activity.objects.filter(available=True)
 
-    def get_context_data(self, **kwargs):
+    # Complète le contexte de l'activité avec ses créneaux disponibles.
+    # Le dictionnaire retourné contient les données transmises au template.
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
+
         # Récupération des créneaux futurs sans volontaire
         context["slots"] = TimeSlot.objects.filter(
             activity=self.object,
@@ -164,7 +175,7 @@ class ActivityDetailView(LoginRequiredMixin, generic.DetailView):
 
 
 @require_POST
-def offer_help(request, pk):
+def offer_help(request: HttpRequest, pk: int) -> HttpResponse:
     """ Traite la proposition d'aide d'un utilisateur"""
 
     # Redirection vers l'accueil si l'utilisateur n'est pas connecté
@@ -172,7 +183,12 @@ def offer_help(request, pk):
         return redirect("skillsApp:index")
 
     activity = get_object_or_404(Activity, pk=pk)
+
     slot_id = request.POST.get("slot")
+    # Vérification qu'un créneau a bien été sélectionné
+    if slot_id is None:
+        return redirect("skillsApp:activities_available")
+
     selected_slot = get_object_or_404(TimeSlot, pk=slot_id, activity=activity)
 
     # Vérification des compétences de l'utilisateur
@@ -212,7 +228,7 @@ def offer_help(request, pk):
 
 
 @require_GET
-def confirm_help(request):
+def confirm_help(request: HttpRequest) -> HttpResponse:
     """ Page de confirmation de proposition d'aide. """
     return render(request, "skillsApp/confirm_help.html")
 
@@ -222,8 +238,13 @@ class DashboardView(LoginRequiredMixin, generic.TemplateView):
     login_url = "/skillsApp/login/"
     template_name = "skillsApp/dashboard.html"
 
-    def get_context_data(self, **kwargs):
+    # Complète le contexte avec les demandes d'aide, les engagements et les compétences de l'utilisateur connecté.
+    # Le dictionnaire retourné contient les données envoyées au tableau de bord.
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
+
+        # Vérification du type de l'utilisateur pour mypy
+        assert self.request.user.is_authenticated
 
         context["activities"] = Activity.objects.filter(requester=self.request.user)
 
