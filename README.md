@@ -48,7 +48,7 @@ La configuration se trouve dans `mypy.ini`.
 
 Pour lancer la vérification :
 ````
-python -m mypy skillsApp
+python -m mypy skillsApp skillsExchange
 ````
 
 ## Technologies
