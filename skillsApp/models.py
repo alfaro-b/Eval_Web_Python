@@ -10,7 +10,7 @@ class Skill(models.Model):
     # Compétences proposées par les utilisateurs
     users = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
 
@@ -27,7 +27,7 @@ class Activity(models.Model):
     # Compétence nécessaire pour l'activité
     skill = models.ForeignKey(Skill, on_delete=models.CASCADE)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.title
 
 
@@ -42,5 +42,5 @@ class TimeSlot(models.Model):
     # Utilisateur qui apporte son aide
     helper = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.activity.title} - {self.date}"
