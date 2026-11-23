@@ -40,6 +40,17 @@ python manage.py migrate
 python manage.py runserver
 ````
 
+### Vérification des types avec mypy
+
+Le projet utilise mypy et django-stubs pour vérifier les types Python.
+
+La configuration se trouve dans `mypy.ini`.
+
+Pour lancer la vérification :
+````
+python -m mypy skillsApp
+````
+
 ## Technologies
 
 Python, Django 5.2, SQLite, HTML, CSS
